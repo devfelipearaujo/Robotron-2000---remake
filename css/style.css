@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;500&display=swap');
+
+@import url(./reset.css);
+@import url(./style.css);
+
+:root {
+    /* Cores */
+    --main-cinza: #cccccc;
+    --main-branco: #FFFFFF;
+    --main-preto: #000000;
+    --branco-titulo: Rgba(255, 255, 255, .8);
+
+    /* Font-family */
+    --ff-main: 'Teko', sans-serif;;
+
+    /* Font-sizes */
+    --estatisticas: 24px;
+    --estatisticas-numero: 38px;
+    --pecas: 15.6px;
+    --pecas-numero: 30px;
+    --robotron-titulo: 100px;
+
+    /* Font-weights */
+    --fw-body: 300;
+}
+
+@media screen and (min-width: 1200px) {
+    :root {
+        /* Font-sizes */
+    --estatisticas: 24px;
+    --estatisticas-numero: 48px;
+    --pecas: 25.6px;
+    --pecas-numero: 40px;
+    --robotron-titulo: 130px;
+    }
+}
+
+/* ------ Global Styles ------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    padding: 0;
+    cursor: pointer;
+ }
+
+body, input { 
+    font-family: var(--ff-main);
+    font-weight: var(--fw-body);  
+}
+
+body {
+    background: url(../img/fundo.jpg) center / cover no-repeat;
+    height: 100vh;
+    margin: 1.25rem 1.5rem;
+}
+
+@media screen and (min-width: 1300px){
+    body {
+    margin: 2.25rem 6.37rem;
+    }
+}
+
+/* ------ Robotron Styles ------ */
+
+.main__container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;  
+}
+
+.robotron {
+    background: url(../img/estrutura.png) center / cover no-repeat;
+    width: 104%;
+    height: 48.3vh;  
+}
+
+.robotron__img {
+    width: min(110%, 578px);
+    position: absolute;
+    top: 52%;
+    left: 35%;
+    translate: -30% -13.5%;
+}
+
+.robotron__span {
+    font-size: var(--robotron-titulo);
+    color: var(--branco-titulo);
+    position: absolute;
+    rotate: 270deg;
+    line-height: 0.8;
+    top: 57%;
+    left: -2%;
+}
+
+@media screen and (min-width:1200px) {
+    .main__container {
+        display: flex;
+        flex-direction: row;
+        position: relative;   
+        gap: 0;
+    }
+
+    .robotron__img {
+        top: 20%;
+        left: 10%;
+    }
+
+    .robotron {
+        background: url(../img/estrutura.png) center / cover no-repeat;
+        width: 40vw;
+        height: 80vh;  
+    }
+}
+/* ------ Estatisticas Styles ------ */
+
+.estatisticas__container {
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.estatisticas__atributo {
+    display: inline-block;
+    padding-right: 1rem;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--main-cinza);
+}
+
+.estatisticas__valores__container {
+    display: flex;
+    padding: 1rem; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    clip-path: polygon(0 16%, 8% 0, 92% 0, 100% 16%, 100% 84%, 92% 100%, 8% 100%, 0 84%);
+}
+
+.estatisticas__pecas {
+    display: flex;
+}
+
+.peca__input__container {
+    display: inline-flex;
+}
+
+.estatisticas__valores__container .estatisticas__valores__texto:nth-child(1),
+.estatisticas__valores__container .estatisticas__valores__texto:nth-child(2) {
+    margin-bottom: 1rem;
+}
+
+.estatisticas__valores__container, .estatisticas__pecas {
+    background: rgba(0, 0, 0, .6)
+}
+
+.estatisticas__atributo, .estatisticas__peca {
+    font-size: var(--estatisticas);
+    color: var(--main-branco);
+    text-transform: uppercase;
+}
+
+.estatisticas__valores__texto {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.estatisticas__valores__texto span {
+    font-size: var(--estatisticas-numero);
+    color: var(--main-branco);
+    border: 1px solid var(--main-branco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+nav ul li span {
+    margin-left: 1rem;
+}
+
+@media screen and (min-width:1200px) {
+    .estatisticas__container {
+        margin-top: 0;
+        width: 60vw;
+    }
+
+    .estatisticas__atributo {
+        padding-right: 2rem;
+        margin-bottom: 25px;
+    }
+
+    .estatisticas__valores__texto span {
+        width: 130px;
+    }
+}
