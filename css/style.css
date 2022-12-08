@@ -19,9 +19,11 @@
     --pecas: 15.6px;
     --pecas-numero: 30px;
     --robotron-titulo: 100px;
+    --form-submit: 18px;
 
     /* Font-weights */
     --fw-body: 300;
+    --fw-bold: 500;
 }
 
 @media screen and (min-width: 1200px) {
@@ -32,6 +34,7 @@
     --pecas: 25.6px;
     --pecas-numero: 40px;
     --robotron-titulo: 130px;
+    --form-submit: 32px;
     }
 }
 
@@ -70,24 +73,25 @@ body {
 
 /* ------ Robotron Styles ------ */
 
-.main__container {
+.primary__container {
     display: flex;
     flex-direction: column-reverse;
     gap: 1rem;  
 }
 
-.robotron {
+/* .robotron {
     background: url(../img/estrutura.png) center / cover no-repeat;
     width: 104%;
-    height: 48.3vh;  
-}
+    height: 40vh;  
+} */
 
 .robotron__img {
-    width: min(110%, 578px);
+    width: min(54%, 361px);
     position: absolute;
-    top: 52%;
-    left: 35%;
+    top: 55.1%;
+    left: 61%;
     translate: -30% -13.5%;
+    background: url(../img/estrutura.png) center / cover no-repeat;
 }
 
 .robotron__span {
@@ -98,10 +102,11 @@ body {
     line-height: 0.8;
     top: 57%;
     left: -2%;
+    z-index: -10;
 }
 
 @media screen and (min-width:1200px) {
-    .main__container {
+    .primary__container {
         display: flex;
         flex-direction: row;
         position: relative;   
@@ -109,6 +114,7 @@ body {
     }
 
     .robotron__img {
+        background: none;
         top: 20%;
         left: 10%;
     }
@@ -121,80 +127,181 @@ body {
 }
 /* ------ Estatisticas Styles ------ */
 
-.estatisticas__container {
-    margin-top: 8rem;
+.secondary__container {
+    margin-top: 1rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    width: 100%;
+    gap: .5rem;
+    width: min(100%, 390px);
 }
 
 .estatisticas__atributo {
     display: inline-block;
     padding-right: 1rem;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
     border-bottom: 1px solid var(--main-cinza);
 }
 
-.estatisticas__valores__container {
+.estatisticas__container .estatisticas__info__container:nth-child(2) .estatisticas__atributo,
+.estatisticas__container .estatisticas__info__container:nth-child(4) .estatisticas__atributo {
+    padding-right: 0;
+    padding-left: 1rem;
+    margin-bottom: 7px;
+}
+
+.estatisticas__container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(37vw, 279px);
     padding: 1rem; 
-    flex-wrap: wrap;
-    justify-content: space-between;
-    clip-path: polygon(0 16%, 8% 0, 92% 0, 100% 16%, 100% 84%, 92% 100%, 8% 100%, 0 84%);
+    clip-path: polygon(0 10%, 13% 0, 87% 0, 100% 10%, 100% 90%, 87% 100%, 13% 100%, 0 90%);
 }
 
-.estatisticas__pecas {
+.estatisticas__info__container {
     display: flex;
-}
-
-.peca__input__container {
-    display: inline-flex;
-}
-
-.estatisticas__valores__container .estatisticas__valores__texto:nth-child(1),
-.estatisticas__valores__container .estatisticas__valores__texto:nth-child(2) {
+    align-items: center;
     margin-bottom: 1rem;
 }
 
-.estatisticas__valores__container, .estatisticas__pecas {
-    background: rgba(0, 0, 0, .6)
-}
-
-.estatisticas__atributo, .estatisticas__peca {
-    font-size: var(--estatisticas);
-    color: var(--main-branco);
-    text-transform: uppercase;
-}
-
-.estatisticas__valores__texto {
-    display: flex;
-    align-items: center;
-    width: 50%;
-}
-
-.estatisticas__valores__texto span {
-    font-size: var(--estatisticas-numero);
+.estatistica__valor {
+    font-size: calc(var(--estatisticas-numero)/1.5);
     color: var(--main-branco);
     border: 1px solid var(--main-branco);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 55px;
+    text-align: center;
+    line-height: 34px;
+    width: 35px;
     aspect-ratio: 1;
     border-radius: 50%;
 }
 
-nav ul li span {
-    margin-left: 1rem;
+.estatisticas__container .estatisticas__info__container:nth-child(2),
+.estatisticas__container .estatisticas__info__container:nth-child(4) {
+    flex-direction: row-reverse;
+    justify-content: left;
+}
+
+/* ------ Estatisticas Valores e Peças ------ */
+
+.estatisticas__container, .pecas__box {
+    background: rgba(0, 0, 0, .6)
+}
+
+.estatisticas__atributo, .pecas__box {
+    font-size: calc(var(--estatisticas)/1.4);
+    color: var(--main-branco);
+    text-transform: uppercase;
+}
+
+/* ------ Estatisticas Peças ------ */
+
+.pecas__form {
+    text-align: center;
+}
+
+.pecas__box {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: .5rem;
+    padding: .5rem;
+    clip-path: polygon(5% 0, 0 10%, 0 90%, 5% 100%, 95% 100%, 100% 90%, 100% 10%, 95% 0);
+    width: min(100%, 390px);
+}
+
+.peca {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(50% - 2rem);
+    border-bottom: 1px solid white;
+    padding-bottom: .3rem;
+}
+
+.pecas__box .peca:first-child {
+    width: 80%;
+    border-bottom: 1px solid white;
+}
+
+.pecas__box__span {
+    position: absolute;
+    display: block;
+    height: 68%;
+    width: 1px;
+    background: white;
+    top: 32%;
+}
+
+
+.peca__input__container {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.3rem;
+    border-radius: 35px;
+    background-color: black;
+}
+
+.peca__btn {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--main-cinza);
+    background: none;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--main-cinza);
+    border-radius: 50%;
+}
+
+.peca__input {
+    font-size: 1.75rem;
+    background: black;
+    color: white;
+    text-align: center;
+    width: 30px;
+    height: 25px;
+    padding-top: 5px;
+    border: none;
+}
+
+.peca__input__container .peca__btn:first-child {
+    line-height: 30px;
+}
+
+.producao__btn {
+    font-size: var(--form-submit);
+    font-weight: var(--fw-bold);
+    background: var(--main-branco);
+    border: 1px solid white;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+    padding: 0rem 0.7rem;
+    padding-top: 0.2rem;
+    clip-path: polygon(0 100%, 0 0, 100% 0, 100% 38%, 83% 100%);
 }
 
 @media screen and (min-width:1200px) {
-    .estatisticas__container {
+    .estatisticas__container{
+        display: flex;
+    }
+
+    .estatisticas__info__container {
+        width: 50%;
+    }
+
+    .estatisticas__atributo, .pecas__box {
+        font-size: var(--estatisticas);
+        color: var(--main-branco);
+        text-transform: uppercase;
+    }
+
+    .secondary__container {
+        align-items: center;
         margin-top: 0;
         width: 60vw;
+        gap: 2rem;
     }
 
     .estatisticas__atributo {
@@ -202,7 +309,7 @@ nav ul li span {
         margin-bottom: 25px;
     }
 
-    .estatisticas__valores__texto span {
+    .estatistica__valor {
         width: 130px;
     }
 }
