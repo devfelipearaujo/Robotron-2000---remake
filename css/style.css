@@ -20,6 +20,7 @@
     --pecas-numero: 30px;
     --robotron-titulo: 100px;
     --form-submit: 18px;
+    --robotron-btn: 15px;
 
     /* Font-weights */
     --fw-body: 300;
@@ -35,6 +36,7 @@
     --pecas-numero: 40px;
     --robotron-titulo: 130px;
     --form-submit: 32px;
+    --robotron-btn: 20px;
     }
 }
 
@@ -75,8 +77,7 @@ body {
 
 .primary__container {
     display: flex;
-    flex-direction: column-reverse;
-    gap: 1rem;  
+    flex-direction: column-reverse;  
 }
 
 /* .robotron {
@@ -132,7 +133,7 @@ body {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
-    gap: .5rem;
+    gap: .15rem;
     width: min(100%, 390px);
 }
 
@@ -270,12 +271,25 @@ body {
     line-height: 30px;
 }
 
-.producao__btn {
+.btn {
     font-size: var(--form-submit);
     font-weight: var(--fw-bold);
     background: var(--main-branco);
     border: 1px solid white;
     text-transform: uppercase;
+}
+
+.robotron__btn {
+    font-size: var(--robotron-btn);
+    letter-spacing: .5px;
+    margin-top: 0.2rem;
+    padding: 0 0.7rem;
+    padding-top: 0.1rem;
+    margin-left: 5vw;
+    clip-path: polygon(0% 0%, 100% 1%, 90% 100%, 10% 100%);;
+}
+
+.producao__btn {
     margin-top: 0.2rem;
     padding: 0rem 0.7rem;
     padding-top: 0.2rem;
